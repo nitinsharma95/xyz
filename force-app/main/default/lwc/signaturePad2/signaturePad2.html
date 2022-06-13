@@ -1,0 +1,15 @@
+<template>
+    <article class="slds-card">
+        <h1>Signature: {recordId}</h1>
+        <div class="slds-align_absolute-center">
+            <canvas id="sPanel" style="border:1px solid black;">
+                         
+            </canvas>
+        </div>
+        <div>
+            <lightning-button variant="brand" label="Save" class="slds-m-left_x-small" onclick={handleSaveSignature}></lightning-button>
+            <lightning-button variant="brand" label="Clear" class="slds-m-left_x-small" onclick={handleClear}></lightning-button>
+ 
+        </div>
+    </article>
+</template>

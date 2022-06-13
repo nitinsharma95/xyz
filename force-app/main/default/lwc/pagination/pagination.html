@@ -1,0 +1,35 @@
+<template>
+    <lightning-card title="Contacts">
+   <div class="slds-m-around_medium">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+            <tr class="slds-line-height_reset">
+                <th scope="col"> First Name </th>
+                <th scope="col"> First Name </th>
+                <th scope="col"> Last Name </th>
+                <th scope="col"> Phone </th>
+            </tr>
+        </thead>
+        <tbody>
+            <template for:each={contacts} for:item="con" for:index="index">
+            <tr class="slds-hint-parent" key={con.id}>
+                <td scope="row"> {con.FirstName} </td>
+                <td scope="row"> {con.LastName} </td>
+                <td scope="row"> {con.Phone} </td>
+            </tr>
+        </template>
+        </tbody>
+    </table>
+</div>
+<div>
+    <template if:true={contacts}>
+        <p>{page}</p>
+    </template>
+    
+</div>
+<div>
+    <c-child-padinator onprevious={handlePrevious} onnext={handleNext}></c-child-padinator>
+</div>
+</lightning-card>
+    
+</template>

@@ -1,0 +1,64 @@
+<template>
+    <template if:true={spi}>
+        <lightning-spinner alternative-text="loading" size="medium"></lightning-spinner>
+    </template>
+    <lightning-card title="Demo">
+        
+   <div class="slds-m-around_medium">
+    <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+        <thead>
+           
+            <tr class="slds-line-height_reset" >
+                <template for:each={myFields} for:item="f" for:index="index">
+                <th scope="col" key={f.id}>{f}</th>
+            </template>   
+            </tr>
+        
+        </thead>
+            <tbody>
+                <template for:each={demos} for:item="d" for:index="index">
+                    <tr key={d.id}>
+                        <template for:each={fieldsApiName} for:item="field">
+                            <td key={field.Id}>
+                        
+                                <c-pagination-child-chunk fld={field} rec={d}  ></c-pagination-child-chunk>
+                            </td>
+                        </template>
+                    </tr>
+                </template>
+            </tbody>
+    </table>
+    <div class="slds-m-around_medium" style="width:100%">
+    <table>
+        <tr style="width:100%" >
+            <td style="width:25%"><lightning-button name="prev" label="Previous" variant="brand" icon-name="utility:left" icon-position="left" onclick={handleClick} disabled={prevDiss}></lightning-button> </td>
+            <!-- <td style="width:25%"><lightning-button name="1" label="Page1" variant="brand" icon-position="right" onclick={handleClick}></lightning-button></td>
+            <td style="width:25%"><lightning-button name="5" label="Page5" variant="brand" icon-position="right" onclick={handleClick} disabled={p5} ></lightning-button></td> -->
+            <td style="width:25%"><lightning-button name="nxt" label="Next" variant="brand" icon-name="utility:right" icon-position="right" onclick={handleClick} disabled={nextEnable}></lightning-button></td>
+            
+        </tr>
+    </table>
+</div>
+</div>
+<div class="slds-m-around_medium">
+    <template if:true={demos}>
+        <p style="background-color:green; width:30px; font:bold; text-align:center; color:cyan">{page}</p>
+    </template>
+    
+</div>
+<div>
+    <!-- <c-pagination-child-chunk onprevious={handlePrevious} onnext={handleNext}></c-pagination-child-chunk> -->
+    <!-- <lightning-layout>
+        <lightning-layout-item>
+        <lightning-button label="Previous" variant="brand" icon-name="utility:left" icon-position="left" onclick={handlePrevious}></lightning-button>
+    </lightning-layout-item>
+    <lightning-layout-item class="slds-float_right">
+        <lightning-button label="Next" variant="brand" icon-name="utility:right" icon-position="right" onclick={handleNext}></lightning-button>
+    </lightning-layout-item>
+    <lightning-layout-item class="slds-float_right">
+        <lightning-button label="Page1" variant="brand" icon-position="right" onclick={handleOne}></lightning-button>
+    </lightning-layout-item>
+    </lightning-layout> -->
+</div>
+</lightning-card>
+</template>
